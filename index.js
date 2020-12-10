@@ -166,7 +166,19 @@ class Airplane {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  randomGrade() {
+    student.grade = student.grade + (Math.random() * ((100-student.grade) - 1) + 1);
+  }
  }
+
+ let instructor = new Instructor({
+    name: 'Luis',
+    age: 45,
+    location: 'Provo',
+    specialty: 'SQL',
+    favLanguage: 'C#',
+    catchPhrase: 'Don\'t forget the homies'
+  });
 
 
   /*
@@ -191,6 +203,7 @@ class Airplane {
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
+    this.grade = object.grade;
   }
   listSubjects() {
     return `Loving ${this.favSubjects}!`
@@ -201,6 +214,13 @@ class Airplane {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+  graduate() {
+    if (student.grade > 70) {
+      const canGraduate = true;
+    } else {
+      instructor.randomGrade();
+    }
+  }
  }
 
  const studentAttr = new Student({
@@ -209,7 +229,8 @@ class Airplane {
     location: 'London',
     previousBackground: 'Plumber',
     className: 'WebEU 3',
-    favSubjects: ['JS', 'Node', 'Redux']
+    favSubjects: ['JS', 'Node', 'Redux'],
+    grade: 80
   });
 
   studentAttr.PRAssignment('sq1');
